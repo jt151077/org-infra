@@ -22,7 +22,7 @@ data "google_billing_account" "billing-acc" {
   display_name = "Argolis Billing (jeremyto)"
 }
 
-resource "random_string" "random_suffix" {
+/*resource "random_string" "random_suffix" {
   length  = 8
   special = false
   upper   = false
@@ -34,4 +34,13 @@ resource "google_project" "proj" {
   folder_id       = google_folder.test-folder.id
   billing_account = google_billing_account.billing-acc.id
   deletion_policy = "DELETE"
+}*/
+
+
+output "bid" {
+  value = google_billing_account.billing-acc.id
+}
+
+output "fid" {
+  value = google_folder.test-folder.id
 }
