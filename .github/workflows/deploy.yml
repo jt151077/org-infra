@@ -7,6 +7,7 @@ on:
 env:
   PROJECT_ID: 'jeremyto-billing-management'
   PROJECT_NMR: 396112887841
+  REGION: 'europe-west1'
   
 jobs:
   deploy:
@@ -27,6 +28,6 @@ jobs:
           service_account: 'github-wif@${{env.PROJECT_ID}}.iam.gserviceaccount.com'
           project_id: ${{env.PROJECT_ID}}
 
-      - name: Build and push the Docker image
+      - name: Applying IaC
         run: |-
-          echo $PROJECT_ID
+          gcloud builds submit --config=cloudbuild.yaml --project=$PROJECT_ID --region=$REGION
