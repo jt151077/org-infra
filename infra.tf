@@ -38,9 +38,9 @@ resource "google_project" "proj" {
 
 
 output "bid" {
-  value = google_billing_account.billing-acc.id
+  value = data.google_billing_account.billing-acc.id
 }
 
 output "fid" {
-  value = google_folder.test-folder.id
+  value = data.google_folder.test-folder.id
 }
