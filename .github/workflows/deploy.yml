@@ -30,4 +30,4 @@ jobs:
 
       - name: Applying IaC
         run: |-
-          gcloud builds submit --config=cloudbuild.yaml --project=$PROJECT_ID --region=$REGION
+          gcloud builds submit --config=cloudbuild.yaml --project=$PROJECT_ID --region=$REGION --service-account=github-builder@$PROJECT_ID.iam.gserviceaccount.com
